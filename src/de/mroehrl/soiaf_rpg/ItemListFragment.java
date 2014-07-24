@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-import de.mroehrl.soiaf_rpg.dummy.DummyContent;
+import de.mroehrl.soiaf_rpg.content.SOIAFContent;
 
 /**
  * A list fragment representing a list of Items. This fragment
@@ -72,11 +72,11 @@ public class ItemListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
+        setListAdapter(new ArrayAdapter<SOIAFContent.SOIAFItem>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                DummyContent.ITEMS));
+                SOIAFContent.ITEMS));
     }
 
     @Override
@@ -116,7 +116,7 @@ public class ItemListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+        mCallbacks.onItemSelected(SOIAFContent.ITEMS.get(position).id);
     }
 
     @Override

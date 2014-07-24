@@ -5,6 +5,14 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 
 /**
@@ -17,6 +25,7 @@ import android.view.MenuItem;
  * more than a {@link ItemDetailFragment}.
  */
 public class ItemDetailActivity extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +56,13 @@ public class ItemDetailActivity extends Activity {
                     .add(R.id.item_detail_container, fragment)
                     .commit();
         }
+        
+  
+        
     }
+    
+   
+    
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

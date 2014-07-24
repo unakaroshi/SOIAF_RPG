@@ -1,4 +1,4 @@
-package de.mroehrl.soiaf_rpg.dummy;
+package de.mroehrl.soiaf_rpg.content;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,26 +11,26 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class DummyContent {
+public class SOIAFContent {
 
     /**
      * An array of sample (dummy) items.
      */
-    public static List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static List<SOIAFItem> ITEMS = new ArrayList<SOIAFItem>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static Map<String, SOIAFItem> ITEM_MAP = new HashMap<String, SOIAFItem>();
 
     static {
         // Add 3 sample items.
-        addItem(new DummyItem("1", "Item 1"));
-        addItem(new DummyItem("2", "Item 2"));
-        addItem(new DummyItem("3", "Item 3"));
+        addItem(new SOIAFItem("1", "Currencies"));
+        //addItem(new CurrencyItem("2", "Item 2"));
+        //addItem(new CurrencyItem("3", "Item 3"));
     }
 
-    private static void addItem(DummyItem item) {
+    private static void addItem(SOIAFItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
@@ -38,11 +38,11 @@ public class DummyContent {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class DummyItem {
+    public static class SOIAFItem {
         public String id;
         public String content;
 
-        public DummyItem(String id, String content) {
+        public SOIAFItem(String id, String content) {
             this.id = id;
             this.content = content;
         }

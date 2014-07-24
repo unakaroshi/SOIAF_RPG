@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="currency">
+        <item>@string/golddrachen</item>
+        <item>@string/silberhirschen</item>
+        <item>@string/silbermonde</item>                
+        <item>@string/kupferstuecke</item>        
+    </string-array>
+    
+</resources>
