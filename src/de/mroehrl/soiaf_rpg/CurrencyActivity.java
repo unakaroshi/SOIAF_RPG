@@ -41,22 +41,15 @@ public class CurrencyActivity extends Activity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(CurrencyFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(CurrencyFragment.ARG_ITEM_ID));
+            arguments.putString(CurrencyFragment.ARG_ITEM_ID,  getIntent().getStringExtra(CurrencyFragment.ARG_ITEM_ID));
             CurrencyFragment fragment = new CurrencyFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
                     .add(R.id.item_detail_container, fragment)
                     .commit();
-        }
-        
-  
-        
+        }      
     }
     
-   
-    
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
