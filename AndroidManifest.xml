@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ItemDetailActivity"
+            android:name=".CurrencyActivity"
             android:label="@string/calc_currencies_detail" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

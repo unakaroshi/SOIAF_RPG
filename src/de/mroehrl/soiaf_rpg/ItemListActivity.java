@@ -11,13 +11,13 @@ import android.app.Activity;
  * An activity representing a list of Items. This activity
  * has different presentations for handset and tablet-size devices. On
  * handsets, the activity presents a list of items, which when touched,
- * lead to a {@link ItemDetailActivity} representing
+ * lead to a {@link CurrencyActivity} representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  * <p>
  * The activity makes heavy use of fragments. The list of items is a
  * {@link ItemListFragment} and the item details
- * (if present) is a {@link ItemDetailFragment}.
+ * (if present) is a {@link CurrencyFragment}.
  * <p>
  * This activity also implements the required
  * {@link ItemListFragment.Callbacks} interface
@@ -65,8 +65,8 @@ public class ItemListActivity extends Activity
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(ItemDetailFragment.ARG_ITEM_ID, id);
-            ItemDetailFragment fragment = new ItemDetailFragment();
+            arguments.putString(CurrencyFragment.ARG_ITEM_ID, id);
+            CurrencyFragment fragment = new CurrencyFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
                     .replace(R.id.item_detail_container, fragment)
@@ -75,8 +75,8 @@ public class ItemListActivity extends Activity
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-            Intent detailIntent = new Intent(this, ItemDetailActivity.class);
-            detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
+            Intent detailIntent = new Intent(this, CurrencyActivity.class);
+            detailIntent.putExtra(CurrencyFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
     }

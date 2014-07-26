@@ -15,9 +15,9 @@ import android.view.MenuItem;
  * in a {@link ItemListActivity}.
  * <p>
  * This activity is mostly just a 'shell' activity containing nothing
- * more than a {@link ItemDetailFragment}.
+ * more than a {@link CurrencyFragment}.
  */
-public class ItemDetailActivity extends Activity {
+public class CurrencyActivity extends Activity {
 
 
     @Override
@@ -41,9 +41,9 @@ public class ItemDetailActivity extends Activity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(ItemDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(ItemDetailFragment.ARG_ITEM_ID));
-            ItemDetailFragment fragment = new ItemDetailFragment();
+            arguments.putString(CurrencyFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(CurrencyFragment.ARG_ITEM_ID));
+            CurrencyFragment fragment = new CurrencyFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
                     .add(R.id.item_detail_container, fragment)

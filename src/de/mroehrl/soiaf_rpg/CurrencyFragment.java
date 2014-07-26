@@ -20,10 +20,10 @@ import de.mroehrl.soiaf_rpg.content.SOIAFContent;
 /**
  * A fragment representing a single Item detail screen.
  * This fragment is either contained in a {@link ItemListActivity}
- * in two-pane mode (on tablets) or a {@link ItemDetailActivity}
+ * in two-pane mode (on tablets) or a {@link CurrencyActivity}
  * on handsets.
  */
-public class ItemDetailFragment extends Fragment {
+public class CurrencyFragment extends Fragment {
 	
 	// Some constants
 	private final static int GOLDDRAGONS = 0;
@@ -58,7 +58,7 @@ public class ItemDetailFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ItemDetailFragment() {
+    public CurrencyFragment() {
     }
 
     @Override
