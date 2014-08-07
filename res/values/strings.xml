@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Song of Ice And Fire RPG Helper</string>    
+
+    <string name="app_name">Song of Ice And Fire RPG Helper</string>
     <string name="calc_currencies_detail">Calc Currencies</string>
     <string name="enter_value">Enter Value</string>
     <string name="currency">Currency</string>
+    <string name="currencies">Currencies</string>
+    <string name="character">Character</string>
     <string name="value">Value</string>
     <string name="calculate">Calculate</string>
     <string name="Golddragons">Golddragons</string>
     <string name="Silverstags">Silverstags</string>
     <string name="Silvermoons">Silvermoons</string>
-    <string name="Copperpennies">Copperpennies</string>    
+    <string name="Copperpennies">Copperpennies</string>
+    <string name="title_activity_character">CharacterActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
- 

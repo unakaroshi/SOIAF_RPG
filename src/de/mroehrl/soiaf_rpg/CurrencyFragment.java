@@ -2,7 +2,6 @@ package de.mroehrl.soiaf_rpg;
 
 import android.os.Bundle;
 import android.app.Fragment;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,9 +25,9 @@ import de.mroehrl.soiaf_rpg.content.SOIAFContent;
 public class CurrencyFragment extends Fragment {
 	
 	// Some constants
-	private final static int GOLDDRAGONS = 0;
-	private final static int SILVERSTAGS = 1;
-	private final static int SILVERMOONS = 2;
+	private final static int GOLDDRAGONS   = 0;
+	private final static int SILVERSTAGS   = 1;
+	private final static int SILVERMOONS   = 2;
 	private final static int COPPERPENNIES = 3;
 	
 	// Current selection (starts with Golddragons)
@@ -42,12 +41,11 @@ public class CurrencyFragment extends Fragment {
     private View mRootView;
     	
 	
-	
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
      */
-    public static final String ARG_ITEM_ID = "item_id";
+    public static final String ARG_ITEM_ID = "1";
 
     /**
      * The dummy content this fragment is presenting.
@@ -76,7 +74,7 @@ public class CurrencyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     	
-        mRootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
+        mRootView = inflater.inflate(R.layout.fragment_currencies, container, false);
         
         mResultView      = (TextView) mRootView.findViewById(R.id.resultText);
         mValueEdit       = (EditText) mRootView.findViewById(R.id.edittext);    	        
@@ -100,7 +98,8 @@ public class CurrencyFragment extends Fragment {
         
         // Register the click-Listener        
         mCalcButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            @Override
+			public void onClick(View v) {
             	onCalculate();        
             }
         });        

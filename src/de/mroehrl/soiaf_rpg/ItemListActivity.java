@@ -65,19 +65,29 @@ public class ItemListActivity extends Activity
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(CurrencyFragment.ARG_ITEM_ID, id);
-            CurrencyFragment fragment = new CurrencyFragment();
-            fragment.setArguments(arguments);
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.item_detail_container, fragment)
-                    .commit();
-
+            
+            if ( id.equals(ItemListFragment.CURRENCIES_ID)) {
+	            arguments.putString(CurrencyFragment.ARG_ITEM_ID, id);
+	            CurrencyFragment fragment = new CurrencyFragment();
+	            fragment.setArguments(arguments);
+	            getFragmentManager().beginTransaction()
+	                    .replace(R.id.item_detail_container, fragment)
+	                    .commit();
+            }
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-            Intent detailIntent = new Intent(this, CurrencyActivity.class);
-            detailIntent.putExtra(CurrencyFragment.ARG_ITEM_ID, id);
-            startActivity(detailIntent);
+        	
+        	if ( id.equals(ItemListFragment.CURRENCIES_ID)) {
+	            Intent detailIntent = new Intent(this, CurrencyActivity.class);
+	            detailIntent.putExtra(CurrencyFragment.ARG_ITEM_ID, id);
+	            startActivity(detailIntent);
+        	} else if ( id.equals(ItemListFragment.CHARACTER_ID)) {
+        		Intent detailIntent = new Intent(this, CharacterActivity.class);
+	            detailIntent.putExtra(CharacterFragment.ARG_ITEM_ID, id);
+	            startActivity(detailIntent);
+        	}
+        	
         }
     }
 }

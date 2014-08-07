@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.app.ListFragment;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -20,6 +22,15 @@ import de.mroehrl.soiaf_rpg.content.SOIAFContent;
  * interface.
  */
 public class ItemListFragment extends ListFragment {
+	
+	public final static String CURRENCIES_ID = "1";
+	public final static String CHARACTER_ID  = "2";
+	
+	private static boolean initialized = false;
+	
+	static {
+	       
+	}
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -71,7 +82,13 @@ public class ItemListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO: replace with a real list adapter.
+        
+        if ( !initialized ) {
+        	SOIAFContent.addItem(CURRENCIES_ID, getString(R.string.currencies));
+        	SOIAFContent.addItem(CHARACTER_ID, getString(R.string.character));
+        	initialized = true;
+        }
+        
         setListAdapter(new ArrayAdapter<SOIAFContent.SOIAFItem>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
@@ -122,7 +139,7 @@ public class ItemListFragment extends ListFragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (mActivatedPosition != ListView.INVALID_POSITION) {
+        if (mActivatedPosition != AdapterView.INVALID_POSITION) {
             // Serialize and persist the activated item position.
             outState.putInt(STATE_ACTIVATED_POSITION, mActivatedPosition);
         }
@@ -136,12 +153,12 @@ public class ItemListFragment extends ListFragment {
         // When setting CHOICE_MODE_SINGLE, ListView will automatically
         // give items the 'activated' state when touched.
         getListView().setChoiceMode(activateOnItemClick
-                ? ListView.CHOICE_MODE_SINGLE
-                : ListView.CHOICE_MODE_NONE);
+                ? AbsListView.CHOICE_MODE_SINGLE
+                : AbsListView.CHOICE_MODE_NONE);
     }
 
     private void setActivatedPosition(int position) {
-        if (position == ListView.INVALID_POSITION) {
+        if (position == AdapterView.INVALID_POSITION) {
             getListView().setItemChecked(mActivatedPosition, false);
         } else {
             getListView().setItemChecked(position, true);

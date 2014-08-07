@@ -15,13 +15,11 @@ public class SOIAFContent {
     public static List<SOIAFItem> ITEMS = new ArrayList<SOIAFItem>();
     public static Map<String, SOIAFItem> ITEM_MAP = new HashMap<String, SOIAFItem>();
 
-    static {
-        addItem(new SOIAFItem("1", "Currencies"));        
-        //addItem(new CurrencyItem("2", "Item 2"));
-        //addItem(new CurrencyItem("3", "Item 3"));
+    public static void addItem(String id, String item) {
+    	addItem(new SOIAFItem(id, item));
     }
-
-    private static void addItem(SOIAFItem item) {
+    
+    public static void addItem(SOIAFItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }

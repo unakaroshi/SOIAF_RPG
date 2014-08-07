@@ -4,6 +4,8 @@
     <string name="calc_currencies_detail">Währungen umrechnen</string>
     <string name="enter_value">Wert eingeben</string>
     <string name="currency">Währung</string>
+    <string name="currencies">Währungen</string>
+    <string name="character">Charakter</string>
     <string name="value">Wert</string>
     <string name="calculate">Umrechnen</string>
     <string name="Golddragons">Golddrachen</string>
