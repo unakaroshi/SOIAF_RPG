@@ -1,15 +1,11 @@
 package de.mroehrl.soiaf_rpg;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 
 public class CharacterActivity extends Activity {
 
@@ -33,10 +29,9 @@ public class CharacterActivity extends Activity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            Bundle arguments = new Bundle();
-            arguments.putString(CurrencyFragment.ARG_ITEM_ID,  getIntent().getStringExtra(CharacterFragment.ARG_ITEM_ID));
+            
             CharacterFragment fragment = new CharacterFragment();
-            fragment.setArguments(arguments);
+            
             getFragmentManager().beginTransaction()
                     .add(R.id.item_detail_container, fragment)
                     .commit();
@@ -55,11 +50,14 @@ public class CharacterActivity extends Activity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+					
+		switch(item.getItemId()) {
+			case android.R.id.home:
+				NavUtils.navigateUpTo(this, new Intent(this, ItemListActivity.class));
+				return true;							
 		}
-		return super.onOptionsItemSelected(item);
+		
+        return super.onOptionsItemSelected(item);
 	}
 	
 }

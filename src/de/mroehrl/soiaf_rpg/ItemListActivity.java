@@ -3,8 +3,7 @@ package de.mroehrl.soiaf_rpg;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
-
-
+import android.app.Fragment;
 
 
 /**
@@ -63,29 +62,35 @@ public class ItemListActivity extends Activity
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
-            // fragment transaction.
-            Bundle arguments = new Bundle();
+            // fragment transaction.            
             
+            Fragment fragment = null;
             if ( id.equals(ItemListFragment.CURRENCIES_ID)) {
-	            arguments.putString(CurrencyFragment.ARG_ITEM_ID, id);
-	            CurrencyFragment fragment = new CurrencyFragment();
-	            fragment.setArguments(arguments);
-	            getFragmentManager().beginTransaction()
-	                    .replace(R.id.item_detail_container, fragment)
-	                    .commit();
+            	fragment = new CurrencyFragment();	        
+            } else if (id.equals(ItemListFragment.CHARACTER_ID)) {
+            	fragment = new CharacterFragment();
+            }
+            
+            if ( fragment != null ) {
+            	getFragmentManager().
+            		beginTransaction().
+            		replace(R.id.item_detail_container, fragment).
+            		commit();
             }
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
         	
+        	Intent detailIntent = null;
+        	
         	if ( id.equals(ItemListFragment.CURRENCIES_ID)) {
-	            Intent detailIntent = new Intent(this, CurrencyActivity.class);
-	            detailIntent.putExtra(CurrencyFragment.ARG_ITEM_ID, id);
-	            startActivity(detailIntent);
+	             detailIntent = new Intent(this, CurrencyActivity.class);	            
         	} else if ( id.equals(ItemListFragment.CHARACTER_ID)) {
-        		Intent detailIntent = new Intent(this, CharacterActivity.class);
-	            detailIntent.putExtra(CharacterFragment.ARG_ITEM_ID, id);
-	            startActivity(detailIntent);
+        		 detailIntent = new Intent(this, CharacterActivity.class);
+        	}
+        	
+        	if ( detailIntent != null ) {
+        		startActivity(detailIntent);
         	}
         	
         }

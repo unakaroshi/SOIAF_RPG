@@ -1,14 +1,14 @@
 package de.mroehrl.RPG;
 
-public class Character {
+public class RPGCharacter {
 	private String name;
 	private int copperPennies = 0;
 			
-	public Character() {
+	public RPGCharacter() {
 		this("none");
 	}
 	
-	public Character(String aName) {
+	public RPGCharacter(String aName) {
 		name = aName;
 	}
 	
